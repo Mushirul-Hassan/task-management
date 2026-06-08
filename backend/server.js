@@ -4,6 +4,10 @@ const cors = require("cors");
 const morgan = require("morgan");
 
 const connectDB = require("./config/db");
+const authRoutes = require("./routes/authRoutes");
+const taskRoutes = require("./routes/taskRoutes");
+const errorHandler = require("./middleware/errorHandler");
+const { errorResponse } = require("./utils/apiResponse");
 
 const app = express();
 
