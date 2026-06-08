@@ -46,3 +46,15 @@ const login = async (req, res, next) => {
     next(error);
   }
 };
+
+const getMe = async (req, res) => {
+  const { _id, name, email, createdAt } = req.user;
+  return successResponse(res, 200, "User fetched", {
+    _id,
+    name,
+    email,
+    createdAt,
+  });
+};
+
+module.exports = { register, login, getMe };
