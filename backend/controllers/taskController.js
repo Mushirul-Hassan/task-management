@@ -65,3 +65,19 @@ const getTaskById = async (req, res, next) => {
     next(error);
   }
 };
+
+const createTask = async (req, res, next) => {
+  try {
+    const { title, description } = req.body;
+
+    const task = await Task.create({
+      title,
+      description,
+      userId: req.user._id,
+    });
+
+    return successResponse(res, 201, "Task created successfully", { task });
+  } catch (error) {
+    next(error);
+  }
+};
