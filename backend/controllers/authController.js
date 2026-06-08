@@ -26,3 +26,23 @@ const register = async (req, res, next) => {
     next(error);
   }
 };
+
+const login = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email }).select("+password");
+    if (!user || !(await user.comparePassword(password))) {
+      return errorResponse(res, 401, "Invalid email or password.");
+    }
+
+    const token = generateToken(user._id);
+
+    return successResponse(res, 200, "Logged in successfully", {
+      token,
+      user: { _id: user._id, name: user.name, email: user.email },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
