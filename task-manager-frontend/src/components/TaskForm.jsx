@@ -31,4 +31,46 @@ const TaskForm = ({ open, onClose, onSubmit, editTask }) => {
     await onSubmit(data);
     reset();
   };
+
+  return (
+    <Dialog open={open} onOpenChange={onClose}>
+      <DialogContent className="sm:max-w-md">
+        <DialogHeader>
+          <DialogTitle>{editTask ? "Edit Task" : "Add Task"}</DialogTitle>
+        </DialogHeader>
+
+        <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-4">
+          <div className="space-y-1">
+            <Label>Title</Label>
+            <Input
+              placeholder="Task title"
+              {...register("title", { required: "Title is required" })}
+            />
+            {errors.title && (
+              <p className="text-sm text-red-500">{errors.title.message}</p>
+            )}
+          </div>
+
+          <div className="space-y-1">
+            <Label>Description</Label>
+            <Input
+              placeholder="Optional description"
+              {...register("description")}
+            />
+          </div>
+
+          <DialogFooter>
+            <Button type="button" variant="outline" onClick={onClose}>
+              Cancel
+            </Button>
+            <Button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Saving..." : editTask ? "Update" : "Add Task"}
+            </Button>
+          </DialogFooter>
+        </form>
+      </DialogContent>
+    </Dialog>
+  );
 };
+
+export default TaskForm;
