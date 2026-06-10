@@ -247,7 +247,8 @@ All task routes require `Authorization: Bearer <token>` header.
 > Register → Login → Dashboard with task list, stats, search, and filter.
 <img width="619" height="431" alt="image" src="https://github.com/user-attachments/assets/6c8282cd-367e-4590-a440-54089d0d1b70" />
 <img width="1919" height="871" alt="image" src="https://github.com/user-attachments/assets/404cca1d-3b97-4d76-8408-a31d972124fd" />
-![Uploading image.png…]()
+<img width="1919" height="871" alt="image" src="https://github.com/user-attachments/assets/f7c7b4db-e804-43e8-be24-8226d9bcaf18" />
+
 
 
 
