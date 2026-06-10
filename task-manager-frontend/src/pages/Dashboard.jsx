@@ -8,7 +8,7 @@ import {
   getStats,
 } from "../api/task.api";
 import Navbar from "@/components/Navbar";
-import StatsBar from "@/components/Statsbar";
+import StatsBar from "@/components/StatsBar";
 import TaskCard from "@/components/TaskCard";
 import TaskForm from "@/components/TaskForm";
 import { Button } from "../components/ui/button";
