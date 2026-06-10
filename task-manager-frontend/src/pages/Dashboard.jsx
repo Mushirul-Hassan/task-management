@@ -169,7 +169,43 @@ const Dashboard = () => {
             ))
           )}
         </div>
+
+        {pagination.totalPages > 1 && (
+          <div className="flex items-center justify-center gap-3">
+            <Button
+              size="sm"
+              variant="outline"
+              disabled={!pagination.hasPrevPage}
+              onClick={() => setPage((p) => p - 1)}
+            >
+              Previous
+            </Button>
+            <span className="text-sm text-gray-500">
+              {pagination.page} / {pagination.totalPages}
+            </span>
+            <Button
+              size="sm"
+              variant="outline"
+              disabled={!pagination.hasNextPage}
+              onClick={() => setPage((p) => p + 1)}
+            >
+              Next
+            </Button>
+          </div>
+        )}
       </div>
+
+      <TaskForm
+        open={formOpen}
+        onClose={() => {
+          setFormOpen(false);
+          setEditTask(null);
+        }}
+        onSubmit={handleFormSubmit}
+        editTask={editTask}
+      />
     </div>
   );
 };
+
+export default Dashboard;
