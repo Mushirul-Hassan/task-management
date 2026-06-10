@@ -7,10 +7,10 @@ import {
   toggleTask,
   getStats,
 } from "../api/task.api";
-import Navbar from "../components/Navbar";
-import StatsBar from "../components/StatsBar";
-import TaskCard from "../components/TaskCard";
-import TaskForm from "../components/TaskForm";
+import Navbar from "@/components/Navbar";
+import StatsBar from "@/components/Statsbar";
+import TaskCard from "@/components/TaskCard";
+import TaskForm from "@/components/TaskForm";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 
